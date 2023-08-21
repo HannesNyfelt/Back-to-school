@@ -25,4 +25,3 @@ button.addEventListener('click', () => {
   let StrengthScore = LetterScore + numberScore + specialScore
   span.innerHTML = `Your strength score is: ${StrengthScore}`
 })
-
