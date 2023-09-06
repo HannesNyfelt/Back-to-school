@@ -20,8 +20,13 @@ button.addEventListener('click', () => {
   let currentPassword = password.value
   let LetterScore = currentPassword.replace(/[^a-zA-Z]/gi, "").length;
   let numberScore = currentPassword.replace(/[^0-9]/gi, "").length * 10
-  let specialScore = currentPassword.replace(/[\p{P}\p{S}]/gi, "").length * 10
+  let specialScore = currentPassword.replace("[!@#%^&*()_+-=[]{}|;':,./<>?~]", "").length * 10
+
+  specialScore = specialScore - numberScore - LetterScore
 
   let StrengthScore = LetterScore + numberScore + specialScore
   span.innerHTML = `Your strength score is: ${StrengthScore}`
+
+  console.log(LetterScore, numberScore, specialScore);
+
 })
